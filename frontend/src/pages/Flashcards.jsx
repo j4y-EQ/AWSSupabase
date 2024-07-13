@@ -49,7 +49,7 @@ export default function Flashcards() {
 
 			<Card className={`flip-container ${show ? "flipped" : ""}`} sx={{ height: "75%", m: 12, marginBottom: 5 }}>
 				<CardActionArea className={`flipper`} sx={{ height: "100%" }} onClick={() => { setshow(!show) }}>
-					<CardContent className={`front`} sx={{ height: "100%", width: "100%", justifyContent: 'center', bgcolor: 'primary.main', color: 'primary.contrastText' }}>
+					<CardContent className={`front`} sx={{ padding:"0", height: "100%", width: "100%", justifyContent: 'center', bgcolor: 'primary.main', color: 'primary.contrastText' }}>
 						<Box sx={{ display: "flex", height: "100%", justifyContent: 'center' }}>
 							<Typography variant="h3" sx={{ my: "auto" }} component="div" align="center"  >
 								{flashcards[current]["question"]}
@@ -57,7 +57,7 @@ export default function Flashcards() {
 							</Typography>
 						</Box>
 					</CardContent>
-					<CardContent className={`back`} sx={{ height: "100%", width: "100%", justifyContent: 'center', bgcolor: 'secondary.main', color: 'primary.contrastText' }}>
+					<CardContent className={`back`} sx={{ padding:"0", height: "100%", width: "100%", justifyContent: 'center', bgcolor: 'secondary.main', color: 'primary.contrastText' }}>
 						<Box sx={{ display: "flex", height: "100%", justifyContent: 'center' }}>
 							<Typography variant="h3" sx={{ my: "auto" }} component="div" align="center"  >
 								{flashcards[current]["answer"]}
