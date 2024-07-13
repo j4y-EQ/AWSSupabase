@@ -54,6 +54,9 @@ def get_flashcard_by_id_from_supabase(flashcard_id):
     response = supabase.table('flashcards').select("*").eq('id', flashcard_id).execute()
     return response
 
+def get_flashcard_by_name_from_supabase(flashcard_id):
+    response = supabase.table('flashcards').select("*").eq('user_id', flashcard_id).execute()
+    return response
 
 ###################################################################################################
 # Amazon Bedrock Titan Model
@@ -168,6 +171,13 @@ def get_all_flashcards():
 def get_flashcard_by_id(flashcard_id):
     """API to get a specific flashcard by ID."""
     response = get_flashcard_by_id_from_supabase(flashcard_id)
+    return jsonify(response.data)
+
+@app.route('/flashcards/user/<userid>', methods=['GET'])
+@cross_origin()
+def get_flashcard_by_user(userid):
+    """API to get a specific flashcard by ID."""
+    response = get_flashcard_by_name_from_supabase(userid)
     return jsonify(response.data)
 
 @app.route('/extract-text', methods=['POST'])
