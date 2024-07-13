@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Routes, Navigate, Route } from 'react-router-dom';
 import Home from './Home';
 import Flashcards from './Flashcards';
-//import CreateFlashcard from './CreateFlashcard';
+import CreateFlashcard from './CreateFlashcard';
 
 const AppRoutes = () => {
     return (    
@@ -11,7 +11,7 @@ const AppRoutes = () => {
             <Route path='*' element={<Navigate to={'/home'}/>} />
 
             <Route path='/flashcards' element={<Flashcards/>} />
-            {/*<Route path='/createflashcard' element={<CreateFlashcard/>} />*/}
+            <Route path='/createflashcard' element={<CreateFlashcard/>} />
             <Route path='/home' element={<Home/>} />
         </Routes>
     )
