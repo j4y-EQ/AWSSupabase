@@ -133,7 +133,7 @@ def clean_text_for_titan(text):
     cleaned_text = re.sub(r'\n+', '\n', cleaned_text)
 
     # Add clear instructions for generating flashcards
-    instruction_text = '''\n\nHuman:Please use the following text to create up to 10 flashcards 
+    instruction_text = '''\n\nHuman:Please use the following text to create 10 flashcards
     in a JSON format, where the questions are derived from the following text, do not put newlines in your response:\n\n
     
     '''
@@ -165,7 +165,7 @@ def extract_text():
         return jsonify({"error": "No flashcard name provided"}), 400
 
     if file and file.filename.endswith('.pdf'):
-        file_path = os.path.join("tests", file.filename)
+        file_path = os.path.join("uploaded_files", file.filename)
         file.save(file_path)
         text = extract_text_from_pdf(file_path)
 
