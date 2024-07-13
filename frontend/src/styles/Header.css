@@ -1,0 +1,19 @@
+.header {
+    background-color: #a4c991;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+.ul {
+  list-style-type: none;
+  position: fixed;
+  width: 100%;
+}
+
+.li {
+  padding: 10%;
+  display: inline;
+}
