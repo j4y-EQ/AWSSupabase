@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import IconButton from '@mui/material/IconButton';
 
 export default function Flashcards() {
   const {session, supabase} = useContext(authContext);
@@ -54,11 +55,13 @@ export default function Flashcards() {
 	  	</CardContent>
 	  </Card>
 	  <Box sx={{display:"flex", flexGrow:"1", alignItems:"center", justifyContent:'center'}}>
-	  		<NavigateBeforeIcon onClick={()=>{
+			<IconButton tooltip="Previous Flashcard"onClick={()=>{
 				if (current>0){
 				setcurrent(current-1)
 				}}
-			}/>
+			}>
+	  		<NavigateBeforeIcon />
+			</IconButton>
 	  		<Typography sx={{mx: "1rem"}}> Select Flashcards
 	  		</Typography>
 	  		<NavigateNextIcon onClick={()=>{
