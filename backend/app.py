@@ -43,6 +43,15 @@ def insert_flashcards_to_supabase(user_id, flashcards, flashcard_name):
     return response
 
 
+def get_all_flashcards_from_supabase():
+    response = supabase.table('flashcards').select("*").execute()
+    return response
+
+
+def get_flashcard_by_id_from_supabase(flashcard_id):
+    response = supabase.table('flashcards').select("*").eq('id', flashcard_id).execute()
+    return response
+
 
 ###################################################################################################
 # Amazon Bedrock Titan Model
@@ -144,6 +153,18 @@ def clean_text_for_titan(text):
 ###################################################################################################
 # API FROM HERE ONWARDS
 
+@app.route('/flashcards', methods=['GET'])
+def get_all_flashcards():
+    """API to get all flashcards."""
+    response = get_all_flashcards_from_supabase()
+    return jsonify(response.data)
+
+
+@app.route('/flashcards/<int:flashcard_id>', methods=['GET'])
+def get_flashcard_by_id(flashcard_id):
+    """API to get a specific flashcard by ID."""
+    response = get_flashcard_by_id_from_supabase(flashcard_id)
+    return jsonify(response.data)
 
 @app.route('/extract-text', methods=['POST'])
 def extract_text():
