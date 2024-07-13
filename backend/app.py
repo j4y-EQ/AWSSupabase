@@ -182,7 +182,7 @@ def extract_text():
     if file.filename == '':
         return jsonify({"error": "No selected file"}), 400
 
-    user_id = int(request.form.get('user_id'))
+    user_id = request.form.get('user_id')
     if not user_id:
         return jsonify({"error": "No user_id provided"}), 400
 
