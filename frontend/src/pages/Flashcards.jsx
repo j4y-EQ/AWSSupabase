@@ -45,9 +45,9 @@ export default function Flashcards() {
 		<div style={{ height: "100vh", width: "100vw", display: "flex", flexDirection: "column" }}>
 
 			<HeaderBar />
-			<Typography variant="h2" sx={{ fontWeight: "bold" }}>{name} </Typography>
+			<Typography variant="h2" sx={{ fontWeight: "bold", alignSelf: "center", marginTop: 2}}>{name} </Typography>
 
-			<Card className={`flip-container ${show ? "flipped" : ""}`} sx={{ height: "75%", m: 12, marginBottom: 5 }}>
+			<Card className={`flip-container ${show ? "flipped" : ""}`} sx={{ height: "75%", mx: 12, marginBottom: 5 }}>
 				<CardActionArea className={`flipper`} sx={{ height: "100%" }} onClick={() => { setshow(!show) }}>
 					<CardContent className={`front`} sx={{ padding:"0", height: "100%", width: "100%", justifyContent: 'center', bgcolor: 'primary.main', color: 'primary.contrastText' }}>
 						<Box sx={{ display: "flex", height: "100%", justifyContent: 'center' }}>
