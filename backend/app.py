@@ -2,6 +2,7 @@
 # Import and Initializing
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS  
 import os
 import fitz  # PyMuPDF
 from supabase import create_client, Client
@@ -12,6 +13,7 @@ import logging
 import re
 
 app = Flask(__name__)
+CORS(app)
 load_dotenv()
 
 # Configure logging
