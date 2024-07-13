@@ -75,8 +75,8 @@ export default function CreateFlashcard() {
     return (
         <Box>
             <HeaderBar/>
-            <Stack minHeight={400} spacing={4} justifyContent="center" alignContent="center" flexDirection="column" sx={{margin: 10}}>
-                <Typography variant="h6" component="div" fontWeight={"fontWeightBold"} sx={{ flexGrow: 0.2 }}>
+            <Stack minHeight={400} spacing={4} justifyContent="flex-start" alignContent="center" direction="column" sx={{margin: 10}}>
+                <Typography variant="h3" justifySelf={'center'} fontWeight={"fontWeightBold"} sx={{ flexGrow: 0.2 }}>
                     Upload your file here!
                 </Typography>
                 <Button component="label" role={undefined} variant="contained" tabIndex={-1} startIcon={<CloudUploadIcon />} sx={{flexGrow: 1, fontWeight:'fontWeightBold'}}>

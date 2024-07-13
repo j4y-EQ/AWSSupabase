@@ -22,7 +22,7 @@ export default function HeaderBar() {
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="h6" component="div" fontWeight={"fontWeightBold"} sx={{ flexGrow: 0.2 }}>
-                        Cool Math Games
+                        TootToot
                     </Typography>
                     <Stack direction="row" spacing={2} sx={{flexGrow: 1}}>
                         <Link href="home" color="inherit" >Home</Link>
