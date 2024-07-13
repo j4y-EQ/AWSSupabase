@@ -6,7 +6,9 @@ import { supabase } from './utils/supabaseClient'
 import { authContext } from './utils/authContext'
 import AppRoutes from './pages/AppRoutes'
 import { Route, Routes, Navigate } from 'react-router-dom'
-
+import {CssBaseline, ThemeProvider } from "@mui/material";
+ 
+import { appTheme } from "./themes/theme";
 export default function App() {
   const [session, setSession] = useState(null)
 
@@ -27,18 +29,24 @@ export default function App() {
 
   if (!session) {
     return (
+	 <ThemeProvider theme={appTheme}>
+<CssBaseline enableColorScheme />
       <Routes>
         <Route path='/auth' element={
           <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} />
         } />
       </Routes>
+	</ThemeProvider>
     )
   }
   else {
     return (
+	 <ThemeProvider theme={appTheme}>
+<CssBaseline enableColorScheme />
       <authContext.Provider value={{session, supabase}}>
         <AppRoutes/>
       </authContext.Provider>
+	</ThemeProvider>
     )
   }
 }

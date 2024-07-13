@@ -38,13 +38,13 @@ export default function Home() {
     <Box>
       <HeaderBar></HeaderBar>
 
-      <h1>{"Your unique ID is: " + session.user.id}</h1>
 
 
       <Box sx={{margin: 10}}>
         <Accordion >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
+		defaultExpanded={"true"}
             aria-controls="panel1-content"
             id="panel1-header"
             sx={{fontWeight:"fontWeightBold", fontSize:50}}
@@ -55,7 +55,7 @@ export default function Home() {
             <Grid container spacing={2} justifyContent={'flex-start'} padding={5}>
               {flashcards ? Array.from(flashcards).map((card, index) => (
                 <Grid item xs={false} sm={false} md={false} key={index}>
-                  <Card sx={{height: 200, width: 200}}>
+                  <Card sx={{height: 200, width: 200, bgcolor: 'primary.main'}}>
                     <ButtonBase sx={{height: '100%', width: '100%'}} href={'/flashcards?id='+ card.id}>
                       <CardContent>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>

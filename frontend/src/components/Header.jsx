@@ -21,11 +21,10 @@ export default function HeaderBar() {
         <Box sx={{ flexGrow: 0.3 }}>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography variant="h6" component="div" fontWeight={"fontWeightBold"} sx={{ flexGrow: 0.2 }}>
+                    <Link href="home" variant="h5" underline="none" fontWeight={"fontWeightBold"} sx={{ flexGrow: 0.2,width: "min-content" }}>
                         TootToot
-                    </Typography>
+                    </Link>
                     <Stack direction="row" spacing={2} sx={{flexGrow: 1}}>
-                        <Link href="home" color="inherit" >Home</Link>
                         {/* <Link href="flashcards" color="inherit" >Flashcards</Link> */}
                     </Stack>
                     
