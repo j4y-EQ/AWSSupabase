@@ -1,0 +1,90 @@
+.flip-container {
+	
+	-webkit-perspective: 100;
+  -moz-perspective: 100;
+  -ms-perspective: 100;
+  perspective: 100;
+	
+  -ms-transform: perspective(100px);
+  -moz-transform: perspective(100px);
+	
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+	}
+
+.flip-container.flipped .flipper, .flip-container.flipped .flipper {
+	-webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+	}
+
+.flip-container, .front, .back {
+	}
+	@media only screen and (max-width: 768px) {
+		.flip-container{
+	}
+	.flip-container, .front, .back {
+		}
+	}
+.front, .back {
+	text-align: center;
+	color: var(--text);
+	border: 1px solid var(--border);
+	}
+
+.flipper {
+    position: relative;
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    -ms-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+}
+
+.front, .back {
+	  position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+	
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateX(0deg);
+    -moz-transition: 0.6s;
+    -moz-transform-style: preserve-3d;
+    -moz-transform: rotateX(0deg);
+    -o-transition: 0.6s;
+    -o-transform-style: preserve-3d;
+    -o-transform: rotateX(0deg);
+    -ms-transition: 0.6s;
+    -ms-transform-style: preserve-3d;
+    -ms-transform: rotateX(0deg);
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+}
+
+.front {
+	z-index: 2;
+  -webkit-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+	background-color: var(--front);
+}
+
+.back {
+  -webkit-transform: rotateX(-180deg);
+  -moz-transform: rotateX(-180deg);
+  -o-transform: rotateX(-180deg);
+  -ms-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+	background-color: var(--back);
+}
+
