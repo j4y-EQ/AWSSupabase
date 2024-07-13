@@ -32,6 +32,9 @@ export default function App() {
 	 <ThemeProvider theme={appTheme}>
 <CssBaseline enableColorScheme />
       <Routes>
+        <Route path='/' element={
+          <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} />
+        } />
         <Route path='/auth' element={
           <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} />
         } />
