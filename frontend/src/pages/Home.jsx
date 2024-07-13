@@ -4,19 +4,35 @@ import '../styles/Header.css';
 import HeaderBar from '../components/Header';
 import Box from '@mui/material/Box';
 import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
+import Card from '@mui/material/Card';
+import Typography from '@mui/material/Typography';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
-import { Stack } from '@mui/material';
+import { ButtonBase, CardContent, Stack, Grid } from '@mui/material';
 
 export default function Home() {
   const {session, supabase} = useContext(authContext);
+  const [flashcards, setFlashcards] = useState(null)
 
-  useEffect(() => {
-    console.log(session)  
-  })
+  useEffect(()=>{
+		fetch("http://localhost:5000/flashcards/user/" + session.user.id,{
+      mode: 'cors',
+      headers: {
+        'Access-Control-Allow-Origin':'*'
+      }
+		}).then(response=>{
+			if (!response.ok){
+				throw new Error('Response error')
+			}
+			return response.json()
+		}).then(data=>{
+			console.log(data)
+      setFlashcards(data)
+		})
+	},[])
+  
 
   return (
     <Box>
@@ -36,11 +52,22 @@ export default function Home() {
             My Flashcards
           </AccordionSummary>
           <AccordionDetails>
-            <Stack direction="column" spacing={2}>
-              <Button variant='contained'>Set 1</Button>
-              <Button variant='contained'>Set 2</Button>
-              <Button variant='contained'>Set 3</Button>
-            </Stack>
+            <Grid container spacing={2} justifyContent={'flex-start'} padding={5}>
+              {flashcards ? Array.from(flashcards).map((card, index) => (
+                <Grid item xs={false} sm={false} md={false} key={index}>
+                  <Card sx={{height: 200, width: 200}}>
+                    <ButtonBase sx={{height: '100%', width: '100%'}} href={'/flashcards?id='+ card.id}>
+                      <CardContent>
+                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                          {card.flashcard_name}
+                        </Typography>
+                      </CardContent>
+                    </ButtonBase>
+                  </Card>
+                </Grid>
+              )): <></>}
+              
+            </Grid>
           </AccordionDetails>
         </Accordion>
 
