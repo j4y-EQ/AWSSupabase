@@ -26,7 +26,7 @@ export default function HeaderBar() {
                     </Typography>
                     <Stack direction="row" spacing={2} sx={{flexGrow: 1}}>
                         <Link href="home" color="inherit" >Home</Link>
-                        <Link href="flashcards" color="inherit" >Flashcards</Link>
+                        {/* <Link href="flashcards" color="inherit" >Flashcards</Link> */}
                     </Stack>
                     
                     <Button color="inherit" sx={{flexGrow: 0}} onClick={signOut}>Log out</Button>
