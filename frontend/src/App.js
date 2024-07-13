@@ -28,7 +28,6 @@ export default function App() {
   if (!session) {
     return (
       <Routes>
-        <Route path='*' element={<Navigate to={'/auth'}/>} />
         <Route path='/auth' element={
           <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} />
         } />
