@@ -18,7 +18,7 @@ export default function HeaderBar() {
 
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 0.3 }}>
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="h6" component="div" fontWeight={"fontWeightBold"} sx={{ flexGrow: 0.2 }}>
