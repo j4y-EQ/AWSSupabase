@@ -2,7 +2,7 @@
 # Import and Initializing
 
 from flask import Flask, request, jsonify
-from flask_cors import CORS  
+from flask_cors import *
 import os
 import fitz  # PyMuPDF
 from supabase import create_client, Client
@@ -88,7 +88,7 @@ def get_flashcards_from_titan(text):
         )
 
         response_body = json.loads(response.get("body").read().decode("utf-8"))
-        print(f"Response from Titan Model: \n\n{response_body["completion"]}")
+        print(f"Response from Titan Model: \n\n{response_body['completion']}")
         response_text = response_body["completion"]
         start_index = response_text.find("[")
         end_index = response_text.rfind("]") + 1
@@ -156,6 +156,7 @@ def clean_text_for_titan(text):
 # API FROM HERE ONWARDS
 
 @app.route('/flashcards', methods=['GET'])
+@cross_origin()
 def get_all_flashcards():
     """API to get all flashcards."""
     response = get_all_flashcards_from_supabase()
@@ -163,12 +164,14 @@ def get_all_flashcards():
 
 
 @app.route('/flashcards/<int:flashcard_id>', methods=['GET'])
+@cross_origin()
 def get_flashcard_by_id(flashcard_id):
     """API to get a specific flashcard by ID."""
     response = get_flashcard_by_id_from_supabase(flashcard_id)
     return jsonify(response.data)
 
 @app.route('/extract-text', methods=['POST'])
+@cross_origin()
 def extract_text():
     """API to extract text from PDF."""
     if 'file' not in request.files:
