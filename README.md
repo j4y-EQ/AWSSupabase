@@ -23,6 +23,7 @@ TootToot works as the student uploads a PDF file of their notes, and we create f
 ### Technologies Used
 
 - **Flask**: Web framework for developing scalable and robust applications.
+- **React**: Provides frontend
 - **PyMuPDF**: Powerful library for PDF text extraction.
 - **Supabase**: Provides a backend as a service for database management.
 - **Amazon Bedrock**: Utilized for AI-driven text processing and flashcard generation.
