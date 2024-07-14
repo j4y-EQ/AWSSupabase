@@ -4,11 +4,11 @@ TootToot: The app that gives you an easier way to study your stuff so you don't 
 
 ## About TootToot
 
-**TootToot** is a cutting-edge, fully deployable application designed to revolutionize the way you study. Leveraging advanced AI and seamless integration with modern cloud services, TootToot offers an interactive and user-friendly platform to enhance your learning experience. 
+**TootToot** is a designed to revolutionize the way you study. Leveraging advanced AI and seamless integration with modern cloud services, TootToot offers an interactive and user-friendly platform to enhance your learning experience. 
 
 ### How It Works
 
-TootToot works as the student uploads a PDF file of their notes, and we create flashcards and quizzes based on the content.
+TootToot works as the student uploads a PDF file of their notes, and we create flashcards based on the content.
 
 ### Features
 
@@ -16,18 +16,9 @@ TootToot works as the student uploads a PDF file of their notes, and we create f
 - **Supported Formats**: Effortlessly read and process PDF and text files.
 - **Future Support**: Potential to include image to text conversion, expanding accessibility and functionality.
 
-#### Learning Stage
-- **Interactive Learning**: Convert text into thought-provoking questions, ensuring a deeper understanding of each concept.
-- **Detailed Explanations**: Receive comprehensive explanations for incorrect answers to reinforce learning.
-- **Mini Quizzes**: Engage with short quizzes at the end of each learning segment to test retention.
-
-#### Revising Stage
-- **Flashcards**: Automatically generate flashcards for efficient revision sessions.
+#### Flashcard Generation
+- **Automatic Flashcards**: Automatically generate flashcards for efficient revision sessions.
 - **User-Friendly Interface**: Focus on learning without the clutter of unnecessary analytics.
-
-#### Testing Stage
-- **Dynamic Quizzing**: Generate new quizzes tailored to your learning material, enhancing retention and understanding.
-- **Adaptive Testing**: Tailor the quiz difficulty based on your previous performance to continuously challenge and improve your knowledge.
 
 ### Technologies Used
 
@@ -69,5 +60,3 @@ TootToot works as the student uploads a PDF file of their notes, and we create f
   - `flashcard_id`: ID of the flashcard to be retrieved.
 - **Response**:
   - Details of the specified flashcard.
-
-
